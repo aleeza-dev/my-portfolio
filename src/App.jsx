@@ -23,8 +23,9 @@ const projects = [
     title: "Coding Interview Preparation Quiz Application",
     description:
       "An interactive quiz application designed to help users prepare for coding interviews through practice questions and assessments.",
-    tech: "HTML • CSS • JavaScript",
-    github: "#",
+    tech: "React • Node.js • Express.js • MongoDB • Google API • Gemini AI",
+    live: "https://codeprep-ten.vercel.app",
+    github: "https://github.com/aleeza-dev/CodePrep-Frontend",
   },
 
   {

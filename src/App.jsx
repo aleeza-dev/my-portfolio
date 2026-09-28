@@ -12,11 +12,12 @@ const projects = [
   },
 
   {
-    title: "Quick AI – AI-Powered Chatbot Application",
+    title: "Nexa AI – AI-Powered Chatbot Application",
     description:
       "An AI-powered chatbot application designed to provide intelligent and interactive responses.",
     tech: "React • JavaScript • AI",
-    github: "#",
+    live: "https://chatbotfrontend-mu.vercel.app/",
+    github: "https://github.com/aleeza-dev/chatbot_frontend",
   },
 
   {
@@ -46,6 +47,7 @@ function App() {
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
   const certificatesRef = useRef(null);
+  const servicesRef = useRef(null);
 
   // =========================
   // STATES
@@ -55,6 +57,7 @@ function App() {
   const [skillsVisible, setSkillsVisible] = useState(false);
   const [projectsVisible, setProjectsVisible] = useState(false);
   const [certificatesVisible, setCertificatesVisible] = useState(false);
+  const [servicesVisible, setServicesVisible] = useState(false);
 
   // =========================
   // SCROLL ANIMATIONS
@@ -82,12 +85,29 @@ function App() {
       return observer;
     };
 
-    const aboutObserver = createObserver(aboutRef, setAboutVisible);
-    const skillsObserver = createObserver(skillsRef, setSkillsVisible);
-    const projectsObserver = createObserver(projectsRef, setProjectsVisible);
+    const aboutObserver = createObserver(
+      aboutRef,
+      setAboutVisible
+    );
+
+    const skillsObserver = createObserver(
+      skillsRef,
+      setSkillsVisible
+    );
+
+    const projectsObserver = createObserver(
+      projectsRef,
+      setProjectsVisible
+    );
+
     const certificatesObserver = createObserver(
       certificatesRef,
       setCertificatesVisible
+    );
+
+    const servicesObserver = createObserver(
+      servicesRef,
+      setServicesVisible
     );
 
     return () => {
@@ -95,6 +115,7 @@ function App() {
       skillsObserver.disconnect();
       projectsObserver.disconnect();
       certificatesObserver.disconnect();
+      servicesObserver.disconnect();
     };
   }, []);
 
@@ -112,6 +133,7 @@ function App() {
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#certificates">Certificates</a>
+          <a href="#services">Services</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -122,49 +144,54 @@ function App() {
 
       <section className="hero">
         <div className="hero-content">
-        <div>
-          <p className="intro">Hello, I'm</p>
 
-          <h1>Aleeza Amjad</h1>
+          <div>
+            <p className="intro">Hello, I'm</p>
 
-          
-          <h2 className="typing-title">
-          <span>Computer Engineer</span>
-          <span>Web Developer</span>
-          </h2>
+            <h1>Aleeza Amjad</h1>
 
-          <div className="buttons">
-            <a href="#projects" className="btn primary">
-              View Projects
-            </a>
+            <h2 className="typing-title">
+              <span>Computer Engineer</span>
+              <span>Web Developer</span>
+            </h2>
 
-            <a
-              href="https://github.com/aleeza-dev"
-              target="_blank"
-              rel="noreferrer"
-              className="btn"
-            >
-              GitHub
-            </a>
+            <div className="buttons">
 
-            <a
-              href="/Aleeza Amjad CV.pdf"
-              className="btn"
-              download
-            >
-              Download CV
-            </a>
+              <a
+                href="#projects"
+                className="btn primary"
+              >
+                View Projects
+              </a>
+
+              <a
+                href="https://github.com/aleeza-dev"
+                target="_blank"
+                rel="noreferrer"
+                className="btn"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="/Aleeza Amjad CV.pdf"
+                className="btn"
+                download
+              >
+                Download CV
+              </a>
+
+            </div>
           </div>
-        </div>
-      
-      <div className="hero-image">
-      <img
-        src="/profile.png"
-        alt="Aleeza Amjad"
-      />
-    </div>
 
-     </div>
+          <div className="hero-image">
+            <img
+              src="/profile.png"
+              alt="Aleeza Amjad"
+            />
+          </div>
+
+        </div>
       </section>
 
       {/* =========================
@@ -181,48 +208,30 @@ function App() {
         <h2>About Me</h2>
 
         <p className="about-item">
-          I am a Computer Engineering graduate with a strong interest in web
-          development and software engineering. I enjoy turning ideas into
-          practical, responsive and user-friendly applications using modern
-          technologies.
+          I’m a Computer Engineer and Full-Stack Developer
+          specializing in modern web applications, backend systems,
+          and AI-powered digital solutions. I combine engineering
+          fundamentals with practical development experience to
+          build products that are responsive, intuitive, and
+          designed around real-world requirements.
         </p>
 
         <p className="about-item">
-          I have hands-on experience working with frontend technologies such as
-          HTML, CSS, JavaScript and React.js, along with backend technologies
-          including Node.js, Express.js and MongoDB. I also have experience
-          with REST APIs, authentication, CRUD operations and deploying web
-          applications.
+          My work spans the full development lifecycle — from
+          crafting engaging React interfaces and building RESTful
+          APIs to implementing authentication, database-driven
+          functionality, third-party integrations, and deployment.
+          I also explore AI integration to enhance applications
+          with intelligent and interactive capabilities.
         </p>
 
-        <div className="about-cards">
-          <div className="about-card">
-            <h3>💻 Web Development</h3>
-
-            <p>
-              Building responsive frontend interfaces and full-stack web
-              applications.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>🚀 Continuous Learning</h3>
-
-            <p>
-              Exploring new technologies and improving my skills through
-              practical projects.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>🧩 Problem Solving</h3>
-
-            <p>
-              Enjoy solving technical problems and developing practical
-              solutions.
-            </p>
-          </div>
-        </div>
+        <p className="about-item">
+          I focus on writing maintainable code, creating seamless
+          user experiences, and turning complex requirements into
+          practical digital products. My goal is to build solutions
+          that are not only visually polished, but also functional,
+          reliable, and ready to scale.
+        </p>
       </section>
 
       {/* =========================
@@ -239,12 +248,15 @@ function App() {
         <h2>Skills</h2>
 
         <div className="skills">
+
           {/* Frontend & Programming */}
 
           <div className="skill-box">
             <h3>Frontend & Programming</h3>
 
-            <p>HTML • CSS • JavaScript • React.js • Python</p>
+            <p>
+              HTML • CSS • JavaScript • React.js • Python
+            </p>
           </div>
 
           {/* Backend & Databases */}
@@ -263,8 +275,9 @@ function App() {
             <h3>Tools & Technologies</h3>
 
             <p>
-              Git • GitHub • Postman • Vercel • Railway • Firebase • Google
-              API • Stripe Payments • VS Code • Microsoft Office
+              Git • GitHub • Postman • Vercel • Railway • Firebase •
+              Google API • Stripe Payments • VS Code • Microsoft
+              Office
             </p>
           </div>
 
@@ -274,8 +287,8 @@ function App() {
             <h3>AI & Machine Learning</h3>
 
             <p>
-              Artificial Intelligence • Machine Learning • AI/ML Model
-              Deployment in Embedded Systems
+              Artificial Intelligence • Machine Learning • AI/ML
+              Model Deployment in Embedded Systems
             </p>
           </div>
 
@@ -285,10 +298,11 @@ function App() {
             <h3>Professional Skills</h3>
 
             <p>
-              Problem-Solving • Team Collaboration • Client Communication •
-              Multitasking • Leadership
+              Problem-Solving • Team Collaboration • Client
+              Communication • Multitasking • Leadership
             </p>
           </div>
+
         </div>
       </section>
 
@@ -306,8 +320,12 @@ function App() {
         <h2>Projects</h2>
 
         <div className="projects">
+
           {projects.map((project, index) => (
-            <div className="project-card" key={index}>
+            <div
+              className="project-card"
+              key={index}
+            >
               <h3>{project.title}</h3>
 
               <p>{project.description}</p>
@@ -315,6 +333,7 @@ function App() {
               <span>{project.tech}</span>
 
               <div className="project-buttons">
+
                 {project.live && (
                   <a
                     href={project.live}
@@ -325,18 +344,21 @@ function App() {
                   </a>
                 )}
 
-                {project.github && project.github !== "#" && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                )}
+                {project.github &&
+                  project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  )}
+
               </div>
             </div>
           ))}
+
         </div>
       </section>
 
@@ -347,121 +369,312 @@ function App() {
       <section
         id="certificates"
         className={`section certificates ${
-          certificatesVisible ? "certificates-animate" : ""
+          certificatesVisible
+            ? "certificates-animate"
+            : ""
         }`}
         ref={certificatesRef}
       >
         <h2>Certificates</h2>
 
-  <p className="certificates-intro">
-    Professional certifications and achievements that reflect my
-    continuous learning and technical development.
-  </p>
+        <p className="certificates-intro">
+          Professional certifications and achievements that reflect
+          my continuous learning and technical development.
+        </p>
 
-  <div className="certificate-cards">
+        <div className="certificate-cards">
 
-    {/* Certificate 1 */}
-    <div className="certificate-card">
-      <span className="certificate-date">01/10/2025</span>
+          {/* Certificate 1 */}
 
-      <h3>Full Stack Web Development</h3>
+          <div className="certificate-card">
+            <span className="certificate-date">
+              01/10/2025
+            </span>
 
-      <p className="certificate-organization">
-        Hello World Technologies
-      </p>
-    </div>
+            <h3>
+              Full Stack Web Development
+            </h3>
 
-    {/* Certificate 2 */}
-    <div className="certificate-card">
-      <span className="certificate-date">24/01/2026</span>
+            <p className="certificate-organization">
+              Hello World Technologies
+            </p>
+          </div>
 
-      <h3>Foundations of Digital Marketing & E-Commerce</h3>
+          {/* Certificate 2 */}
 
-      <p className="certificate-organization">
-        Google
-      </p>
-    </div>
+          <div className="certificate-card">
+            <span className="certificate-date">
+              24/01/2026
+            </span>
 
-    {/* Certificate 3 */}
-    <div className="certificate-card">
-      <span className="certificate-date">25/08/2025</span>
+            <h3>
+              Foundations of Digital Marketing & E-Commerce
+            </h3>
 
-      <h3>Building RESTful APIs with Node.js and Express</h3>
+            <p className="certificate-organization">
+              Google
+            </p>
+          </div>
 
-      <p className="certificate-organization">
-        LinkedIn Learning
-      </p>
-    </div>
+          {/* Certificate 3 */}
 
-    {/* Certificate 4 */}
-    <div className="certificate-card">
-      <span className="certificate-date">11/01/2026</span>
+          <div className="certificate-card">
+            <span className="certificate-date">
+              25/08/2025
+            </span>
 
-      <h3>Master Modern Frontend Development</h3>
+            <h3>
+              Building RESTful APIs with Node.js and Express
+            </h3>
 
-      <p className="certificate-organization">
-        SkillSprint30
-      </p>
-    </div>
+            <p className="certificate-organization">
+              LinkedIn Learning
+            </p>
+          </div>
 
-    {/* Certificate 5 */}
-    <div className="certificate-card">
-      <span className="certificate-date">06/02/2026</span>
+          {/* Certificate 4 */}
 
-      <h3>Certificate of Membership</h3>
+          <div className="certificate-card">
+            <span className="certificate-date">
+              11/01/2026
+            </span>
 
-      <p className="certificate-organization">
-        Pakistan Freelancers Association (PAFLA)
-      </p>
-    </div>
+            <h3>
+              Master Modern Frontend Development
+            </h3>
 
-  </div>
+            <p className="certificate-organization">
+              SkillSprint30
+            </p>
+          </div>
 
-        <a
-          href="https://drive.google.com/drive/folders/1cGmdwtQNYTSdOm-CKXzBUNiKKN9NrDwK"
-          target="_blank"
-          rel="noreferrer"
-          className="btn primary"
-        >
-          View All Certificates
-        </a>
+          {/* Certificate 5 */}
+
+          <div className="certificate-card">
+            <span className="certificate-date">
+              01/07/2026
+            </span>
+
+            <h3>
+              SEO & Digital Marketing
+            </h3>
+
+            <p className="certificate-organization">
+              Navttc
+            </p>
+          </div>
+
+          {/* Certificate 6 */}
+
+          <div className="certificate-card">
+            <span className="certificate-date">
+              01/07/2026
+            </span>
+
+            <h3>
+              Artificial Intelligence in Python
+            </h3>
+
+            <p className="certificate-organization">
+              Builtin soft
+            </p>
+          </div>
+
+        </div>
+
+        
+
+      </section>
+
+      {/* =========================
+          SERVICES
+      ========================= */}
+
+      <section
+        id="services"
+        className={`section services-section ${
+          servicesVisible ? "services-animate" : ""
+        }`}
+        ref={servicesRef}
+      >
+        <h2>Services</h2>
+
+        <p className="services-intro">
+          I provide modern digital solutions focused on
+          performance, usability, scalability, and real-world
+          business requirements.
+        </p>
+
+        <div className="services">
+
+          {/* Service 1 */}
+
+          <div className="service-card">
+            <div className="service-icon">
+              ⌘
+            </div>
+
+            <h3>
+              Full-Stack Web Development
+            </h3>
+
+            <p>
+              Building complete web applications with modern
+              frontend, backend, databases, authentication,
+              APIs, and deployment.
+            </p>
+          </div>
+
+          {/* Service 2 */}
+
+          <div className="service-card">
+            <div className="service-icon">
+              &lt;/&gt;
+            </div>
+
+            <h3>
+              Frontend Development
+            </h3>
+
+            <p>
+              Creating responsive and interactive user
+              interfaces using React, JavaScript, HTML,
+              and CSS with a strong focus on usability and
+              modern design.
+            </p>
+          </div>
+
+          {/* Service 3 */}
+
+          <div className="service-card">
+            <div className="service-icon">
+              ⚙
+            </div>
+
+            <h3>
+              Backend & API Development
+            </h3>
+
+            <p>
+              Developing secure REST APIs, server-side
+              functionality, database integration,
+              authentication, and reliable backend systems.
+            </p>
+          </div>
+
+          {/* Service 4 */}
+
+          <div className="service-card">
+            <div className="service-icon">
+              ✦
+            </div>
+
+            <h3>
+              AI-Powered Applications
+            </h3>
+
+            <p>
+              Integrating AI capabilities into web
+              applications to create intelligent chatbots,
+              assistants, automation tools, and interactive
+              digital experiences.
+            </p>
+          </div>
+
+          {/* Service 5 */}
+
+          <div className="service-card">
+            <div className="service-icon">
+              ↗
+            </div>
+
+            <h3>
+              Website Optimization
+            </h3>
+
+            <p>
+              Improving website responsiveness, performance,
+              usability, structure, and overall user
+              experience across different devices.
+            </p>
+          </div>
+
+        </div>
       </section>
 
       {/* =========================
           CONTACT
       ========================= */}
 
-      <section id="contact" className="section contact">
+      <section
+        id="contact"
+        className="section contact"
+      >
         <h2>Let's Connect</h2>
 
         <p>
-          I'm open to opportunities, collaborations and interesting projects.
+          I'm open to opportunities, collaborations and
+          interesting projects.
         </p>
 
         <div className="contact-links">
+
+          {/* Gmail */}
+
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=alizaamjad597@gmail.com"
             target="_blank"
             rel="noreferrer"
+            aria-label="Gmail"
           >
-            Email
+            <img
+              src="/gmail.png"
+              alt="Gmail"
+            />
           </a>
+
+          {/* LinkedIn */}
 
           <a
             href="https://www.linkedin.com/in/aleeza-amjad-544379264/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn"
           >
-            LinkedIn
+            <img
+              src="/linkedin.png"
+              alt="LinkedIn"
+            />
           </a>
+
+          {/* GitHub */}
 
           <a
             href="https://github.com/aleeza-dev"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub"
           >
-            GitHub
+            <img
+              src="/github.png"
+              alt="GitHub"
+            />
           </a>
+
+          {/* WhatsApp */}
+
+          <a
+            href="https://wa.me/qr/7PJ5RVWRTAMAA1"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="WhatsApp"
+          >
+            <img
+              src="/whatsapp.png"
+              alt="WhatsApp"
+            />
+          </a>
+
         </div>
       </section>
 
@@ -470,8 +683,11 @@ function App() {
       ========================= */}
 
       <footer>
-        <p>© 2026 Aleeza Amjad. All rights reserved.</p>
+        <p>
+          © 2026 Aleeza Amjad. All rights reserved.
+        </p>
       </footer>
+
     </div>
   );
 }

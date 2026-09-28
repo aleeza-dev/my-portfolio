@@ -77,10 +77,11 @@ a {
 
   padding: 80px 8%;
 
-  background: white;
+  background: #f8fafc;
 }
+
 /* =========================
-HERO IMAGE
+   HERO CONTENT
 ========================= */
 
 .hero-content {
@@ -108,27 +109,39 @@ HERO IMAGE
 .hero-image img {
   width: 420px;
   height: 480px;
+
   object-fit: cover;
+
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
-    filter: drop-shadow(0 15px 30px #b91c1c);
+
+  filter: drop-shadow(0 15px 30px #b91c1c);
+}
+
+.hero-image img:hover {
+  transform: translateY(-5px);
 }
 
 .intro {
   color: #b91c1c;
+
   font-size: 18px;
+
   margin-bottom: 10px;
 }
 
 .hero h1 {
   font-size: 58px;
+
   margin-bottom: 10px;
 }
 
 .hero h2 {
   font-size: 28px;
+
   font-weight: 500;
+
   margin-bottom: 20px;
 }
 
@@ -138,13 +151,17 @@ HERO IMAGE
 
 .typing-title {
   position: relative;
+
   height: 45px;
+
   overflow: hidden;
+
   margin: 10px 0;
 }
 
 .typing-title span {
   position: absolute;
+
   left: 0;
   top: 0;
 
@@ -203,6 +220,7 @@ HERO IMAGE
 
 .buttons {
   display: flex;
+
   gap: 12px;
 
   margin-top: 30px;
@@ -216,6 +234,7 @@ HERO IMAGE
   padding: 12px 20px;
 
   border: 1px solid #b91c1c;
+
   border-radius: 6px;
 
   color: #b91c1c;
@@ -225,11 +244,13 @@ HERO IMAGE
 
 .btn:hover {
   background: #b91c1c;
+
   color: white;
 }
 
 .primary {
   background: #b91c1c;
+
   color: white;
 }
 
@@ -243,10 +264,13 @@ HERO IMAGE
 
 .section {
   padding: 80px 8%;
+
+  background: #f8fafc;
 }
 
 .section > h2 {
   font-size: 32px;
+
   margin-bottom: 25px;
 }
 
@@ -264,6 +288,7 @@ HERO IMAGE
 
 .about-section {
   background: #f8fafc;
+
   text-align: center;
 }
 
@@ -288,6 +313,7 @@ HERO IMAGE
 .about-item,
 .about-card {
   opacity: 0;
+
   transform: translateY(30px);
 }
 
@@ -362,11 +388,13 @@ HERO IMAGE
 @keyframes aboutFadeUp {
   from {
     opacity: 0;
+
     transform: translateY(30px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
@@ -376,6 +404,8 @@ HERO IMAGE
 ========================= */
 
 .skills-section {
+  background: #f8fafc;
+
   text-align: center;
 }
 
@@ -430,6 +460,7 @@ HERO IMAGE
 .skills-section > h2,
 .skill-box {
   opacity: 0;
+
   transform: translateY(30px);
 }
 
@@ -466,6 +497,8 @@ HERO IMAGE
 ========================= */
 
 .projects-section {
+  background: #f8fafc;
+
   text-align: center;
 }
 
@@ -560,6 +593,7 @@ HERO IMAGE
 .projects-section > h2,
 .project-card {
   opacity: 0;
+
   transform: translateY(30px);
 }
 
@@ -592,79 +626,20 @@ HERO IMAGE
 ========================= */
 
 .certificates {
-  background: white;
+  background: #f8fafc;
 
   text-align: center;
 }
 
 .certificates > h2 {
   margin-bottom: 15px;
-}
 
-.certificates p {
-  margin: 0 auto 25px;
-}
-
-/* =========================
-   CERTIFICATES ANIMATION
-========================= */
-
-/* =========================
-   CERTIFICATES
-========================= */
-
-.certificates {
-  background: white;
-  text-align: center;
-}
-
-.certificates > h2 {
-  margin-bottom: 15px;
-}
-
-.certificates-intro {
-  margin: 0 auto 40px;
-  max-width: 700px;
-  line-height: 1.8;
-  color: #64748b;
-}
-
-/* =========================
-   CERTIFICATES
-========================= */
-
-.certificates {
-  background: white;
-  text-align: center;
-}
-
-.certificates > h2 {
-  margin-bottom: 15px;
-}
-
-.certificates-intro {
-  margin: 0 auto 40px;
-  max-width: 700px;
-  line-height: 1.8;
-  color: #64748b;
-}
-
-/* =========================
-   CERTIFICATES
-========================= */
-
-.certificates {
-  background: white;
-  text-align: center;
-}
-
-.certificates > h2 {
-  margin-bottom: 15px;
   font-size: 32px;
 }
 
 .certificates-intro {
   max-width: 700px;
+
   margin: 0 auto 40px;
 
   line-height: 1.8;
@@ -689,7 +664,7 @@ HERO IMAGE
 }
 
 .certificate-card {
-  background: #f8fafc;
+  background: white;
 
   padding: 28px 25px;
 
@@ -776,21 +751,15 @@ HERO IMAGE
   transform: translateY(30px);
 }
 
-/* Heading */
-
 .certificates-animate > h2 {
   animation: sectionFadeUp 0.8s ease forwards;
 }
-
-/* Intro */
 
 .certificates-animate .certificates-intro {
   animation: sectionFadeUp 0.8s ease forwards;
 
   animation-delay: 0.2s;
 }
-
-/* Cards */
 
 .certificates-animate .certificate-card {
   animation: sectionFadeUp 0.8s ease forwards;
@@ -816,7 +785,13 @@ HERO IMAGE
   animation-delay: 0.9s;
 }
 
-/* View All Certificates Button */
+.certificates-animate .certificate-card:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+/* =========================
+   VIEW ALL CERTIFICATES
+========================= */
 
 .certificates-animate > a {
   animation: sectionFadeUp 0.8s ease forwards;
@@ -843,79 +818,252 @@ HERO IMAGE
 }
 
 /* =========================
-   CERTIFICATES RESPONSIVE
+   SERVICES
 ========================= */
 
-@media (max-width: 900px) {
-  .certificate-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.services-section {
+  background: #f8fafc;
+
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .certificate-cards {
-    grid-template-columns: 1fr;
+.services-section > h2 {
+  font-size: 32px;
 
-    gap: 20px;
-  }
-
-  .certificate-card {
-    padding: 25px 20px;
-  }
+  margin-bottom: 15px;
 }
 
-@media (max-width: 480px) {
-  .certificate-cards {
-    grid-template-columns: 1fr;
-  }
+.services-intro {
+  max-width: 700px;
 
-  .certificate-card {
-    padding: 20px;
-  }
+  margin: 0 auto 40px;
 
-  .certificate-card h3 {
-    font-size: 18px;
-  }
+  line-height: 1.8;
 
-  .certificate-date {
-    font-size: 12px;
-  }
+  color: #64748b;
 }
 
+/* =========================
+   SERVICES CARDS
+========================= */
 
+.services {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+
+  padding: 30px 25px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+
+  border-color: #b91c1c;
+}
+
+/* =========================
+   SERVICE ICON
+========================= */
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 20px;
+
+  background: #fee2e2;
+
+  color: #b91c1c;
+
+  border-radius: 50%;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.08);
+
+  background: #b91c1c;
+
+  color: white;
+}
+
+/* =========================
+   SERVICE TITLE
+========================= */
+
+.service-card h3 {
+  font-size: 19px;
+
+  color: #0f172a;
+
+  margin-bottom: 12px;
+
+  line-height: 1.4;
+}
+
+/* =========================
+   SERVICE DESCRIPTION
+========================= */
+
+.service-card p {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  font-size: 15px;
+}
+
+/* =========================
+   SERVICES ANIMATION
+========================= */
+
+.services-section > h2,
+.services-intro,
+.service-card {
+  opacity: 0;
+
+  transform: translateY(30px);
+}
+
+.services-animate > h2 {
+  animation: sectionFadeUp 0.8s ease forwards;
+}
+
+.services-animate .services-intro {
+  animation: sectionFadeUp 0.8s ease forwards;
+
+  animation-delay: 0.2s;
+}
+
+.services-animate .service-card {
+  animation: sectionFadeUp 0.8s ease forwards;
+}
+
+.services-animate .service-card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.services-animate .service-card:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.services-animate .service-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.services-animate .service-card:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.services-animate .service-card:nth-child(5) {
+  animation-delay: 0.9s;
+}
 
 /* =========================
    CONTACT
 ========================= */
 
 .contact {
+  background: #f8fafc;
+
   text-align: center;
 }
 
 .contact > p {
-  margin: 0 auto 25px;
+  margin: 0 auto 30px;
 }
+
+/* =========================
+   CONTACT SOCIAL ICONS
+========================= */
 
 .contact-links {
   display: flex;
 
   justify-content: center;
+  align-items: center;
 
-  gap: 25px;
+  gap: 22px;
 
   flex-wrap: wrap;
 }
 
 .contact-links a {
-  color: #b91c1c;
+  width: 52px;
+  height: 52px;
 
-  font-weight: 600;
+  display: flex;
 
-  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.contact-links a img {
+  width: 27px;
+  height: 27px;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
 }
 
 .contact-links a:hover {
-  color: #7f1d1d;
+  transform: translateY(-5px);
+
+  border-color: #b91c1c;
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.contact-links a:hover img {
+  transform: scale(1.1);
 }
 
 /* =========================
@@ -933,22 +1081,6 @@ footer {
 }
 
 /* =========================
-   COMMON ANIMATION
-========================= */
-
-@keyframes sectionFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
    RESPONSIVE - TABLET
 ========================= */
 
@@ -963,6 +1095,44 @@ footer {
 
   .projects {
     grid-template-columns: 1fr;
+  }
+
+  .certificate-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 40px;
+  }
+
+  .hero-left {
+    width: 100%;
+  }
+
+  .hero-text {
+    margin: 0 auto;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    flex: none;
+  }
+
+  .hero-image img {
+    width: 330px;
+
+    height: 380px;
   }
 }
 
@@ -1024,47 +1194,46 @@ footer {
   .projects {
     grid-template-columns: 1fr;
   }
-}
-/* =========================
-HERO IMAGE RESPONSIVE
-========================= */
 
-@media (max-width: 900px) {
+  .certificate-cards {
+    grid-template-columns: 1fr;
 
-  .hero-content {
-    flex-direction: column;
-
-    text-align: center;
-
-    gap: 40px;
+    gap: 20px;
   }
 
-  .hero-left {
-    width: 100%;
+  .certificate-card {
+    padding: 25px 20px;
   }
 
-  .buttons {
-    justify-content: center;
+  .services {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
   }
 
-  .hero-image {
-    flex: none;
+  .service-card {
+    padding: 25px 20px;
   }
 
-  .hero-image img {
-    width: 330px;
-    height: 380px;
+  .services-intro {
+    font-size: 15px;
   }
 
-}
-
-@media (max-width: 480px) {
-
-  .hero-image img {
-    width: 280px;
-    height: 330px;
+  .contact-links {
+    gap: 18px;
   }
 
+  .contact-links a {
+    width: 50px;
+
+    height: 50px;
+  }
+
+  .contact-links a img {
+    width: 26px;
+
+    height: 26px;
+  }
 }
 
 /* =========================
@@ -1105,16 +1274,78 @@ HERO IMAGE RESPONSIVE
   .buttons {
     flex-direction: column;
 
-    align-items: flex-start;
+    align-items: center;
   }
 
   .btn {
     text-align: center;
+
+    width: 100%;
+
+    max-width: 220px;
+  }
+
+  .hero-image img {
+    width: 280px;
+
+    height: 330px;
   }
 
   .project-card,
   .skill-box,
   .about-card {
     padding: 20px;
+  }
+
+  .certificate-card {
+    padding: 20px;
+  }
+
+  .certificate-card h3 {
+    font-size: 18px;
+  }
+
+  .certificate-date {
+    font-size: 12px;
+  }
+
+  .services-section > h2 {
+    font-size: 28px;
+  }
+
+  .service-card {
+    padding: 22px 18px;
+  }
+
+  .service-icon {
+    width: 54px;
+
+    height: 54px;
+
+    font-size: 22px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+
+  .contact-links {
+    gap: 15px;
+  }
+
+  .contact-links a {
+    width: 48px;
+
+    height: 48px;
+  }
+
+  .contact-links a img {
+    width: 24px;
+
+    height: 24px;
   }
 }

@@ -45,6 +45,7 @@ function App() {
   const projectsRef = useRef(null);
   const certificatesRef = useRef(null);
   const servicesRef = useRef(null);
+  const whatYouGetRef = useRef(null);
 
   const projectRefs = useRef([]);
 
@@ -57,6 +58,7 @@ function App() {
   const [projectsVisible, setProjectsVisible] = useState(false);
   const [certificatesVisible, setCertificatesVisible] = useState(false);
   const [servicesVisible, setServicesVisible] = useState(false);
+  const [whatYouGetVisible, setWhatYouGetVisible] = useState(false);
 
   const [activeProject, setActiveProject] = useState(0);
 
@@ -115,12 +117,18 @@ function App() {
       setServicesVisible
     );
 
+    const whatYouGetObserver = createObserver(
+  whatYouGetRef,
+  setWhatYouGetVisible
+);
+
     return () => {
       aboutObserver.disconnect();
       skillsObserver.disconnect();
       projectsObserver.disconnect();
       certificatesObserver.disconnect();
       servicesObserver.disconnect();
+      whatYouGetObserver.disconnect();
     };
   }, []);
 
@@ -519,6 +527,19 @@ useEffect(() => {
 
           <div className="skill-box">
 
+  <h3>
+    ✧ SEO & Digital Marketing
+  </h3>
+
+  <p>
+    SEO • Keyword Research • On-Page SEO • Content Strategy •
+    Social Media Marketing • Digital Marketing
+  </p>
+
+      </div>
+
+          <div className="skill-box">
+
             <h3>
               ✧ Professional Skills
             </h3>
@@ -871,6 +892,178 @@ useEffect(() => {
             </p>
 
           </div>
+
+          <div className="service-card">
+
+  <div className="service-icon">
+    ⤣
+  </div>
+
+  <h3>
+    SEO & Digital Marketing
+  </h3>
+
+  <p>
+    Helping businesses improve their online visibility through
+    SEO, keyword research, content strategy, social media
+    marketing, and effective digital marketing techniques.
+  </p>
+
+</div>
+
+        </div>
+
+
+        
+
+      </section>
+
+  
+      {/* =========================
+          WHAT YOU'LL GET
+      ========================= */}
+
+      <section
+        id="what-you-get"
+        className={`section what-you-get-section ${
+          whatYouGetVisible
+            ? "what-you-get-animate"
+            : ""
+        }`}
+        ref={whatYouGetRef}
+      >
+
+        <h2>
+          What You’ll Get
+        </h2>
+
+        <p className="what-you-get-intro">
+          More than just a website — you’ll get a reliable,
+          modern, and thoughtfully built digital solution.
+        </p>
+
+        <div className="what-you-get-grid">
+
+          <div className="what-you-get-card">
+
+            <div className="what-you-get-icon">
+              ✦
+            </div>
+
+            <div>
+              <h3>
+                Modern & Responsive Design
+              </h3>
+
+              <p>
+                A clean and professional interface that works
+                smoothly across desktop, tablet, and mobile devices.
+              </p>
+            </div>
+
+          </div>
+
+
+
+          <div className="what-you-get-card">
+
+            <div className="what-you-get-icon">
+              ⚙
+            </div>
+
+            <div>
+              <h3>
+                Functional & Reliable Features
+              </h3>
+
+              <p>
+                Properly implemented functionality, APIs,
+                authentication, databases, and other required
+                features.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="what-you-get-card">
+
+            <div className="what-you-get-icon">
+              ⚡
+            </div>
+
+            <div>
+              <h3>
+                Performance-Focused Experience
+              </h3>
+
+              <p>
+                A smooth and efficient experience with attention
+                to loading speed, responsiveness, and usability.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="what-you-get-card">
+
+            <div className="what-you-get-icon">
+              ♢
+            </div>
+
+            <div>
+              <h3>
+                Scalable Structure
+              </h3>
+
+              <p>
+                A solid foundation that makes it easier to add
+                new features and grow the application over time.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="what-you-get-card">
+
+            <div className="what-you-get-icon">
+              ✓
+            </div>
+
+            <div>
+              <h3>
+                Client-Focused Solution
+              </h3>
+
+              <p>
+                A solution built around your requirements, goals,
+                audience, and the actual needs of your project.
+              </p>
+            </div>
+
+          </div>
+
+          <div className="what-you-get-card">
+
+  <div className="what-you-get-icon">
+    ↗
+  </div>
+
+  <div>
+    <h3>
+      Better Online Visibility
+    </h3>
+
+    <p>
+      Improved search visibility with SEO-focused strategies,
+      keyword research, content optimization, and digital
+      marketing techniques designed to reach the right audience.
+    </p>
+  </div>
+
+</div>
 
         </div>
 

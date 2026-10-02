@@ -10,7 +10,6 @@ const projects = [
     live: "https://notes-app-gxt2.vercel.app/",
     github: "https://github.com/aleeza-dev/Notes-app",
   },
-
   {
     title: "Nexa AI – AI-Powered Chatbot Application",
     description:
@@ -19,7 +18,6 @@ const projects = [
     live: "https://chatbotfrontend-mu.vercel.app/",
     github: "https://github.com/aleeza-dev/chatbot_frontend",
   },
-
   {
     title: "Coding Interview Preparation Quiz Application",
     description:
@@ -28,7 +26,6 @@ const projects = [
     live: "https://codeprep-ten.vercel.app",
     github: "https://github.com/aleeza-dev/CodePrep-Frontend",
   },
-
   {
     title: "Weather Application",
     description:
@@ -49,6 +46,8 @@ function App() {
   const certificatesRef = useRef(null);
   const servicesRef = useRef(null);
 
+  const projectRefs = useRef([]);
+
   // =========================
   // STATES
   // =========================
@@ -58,6 +57,12 @@ function App() {
   const [projectsVisible, setProjectsVisible] = useState(false);
   const [certificatesVisible, setCertificatesVisible] = useState(false);
   const [servicesVisible, setServicesVisible] = useState(false);
+
+  const [activeProject, setActiveProject] = useState(0);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [projectCount, setProjectCount] = useState(0);
 
   // =========================
   // SCROLL ANIMATIONS
@@ -119,6 +124,72 @@ function App() {
     };
   }, []);
 
+  // =========================
+  // PROJECT ACTIVE SCROLL
+  // =========================
+
+  useEffect(() => {
+    const observers = projectRefs.current.map(
+      (projectElement, index) => {
+        if (!projectElement) {
+          return null;
+        }
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setActiveProject(index);
+            }
+          },
+          {
+            threshold: 0.5,
+          }
+        );
+
+        observer.observe(projectElement);
+
+        return observer;
+      }
+    );
+
+    return () => {
+      observers.forEach((observer) => {
+        if (observer) {
+          observer.disconnect();
+        }
+      });
+    };
+  }, []);
+
+  // =========================
+  // DARK MODE
+  // =========================
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkMode);
+  }, [darkMode]);
+
+
+  // =========================
+// PROJECT COUNT ANIMATION
+// =========================
+
+useEffect(() => {
+  let current = 0;
+
+  const counter = setInterval(() => {
+    current += 1;
+
+    setProjectCount(current);
+
+    if (current === 10) {
+      clearInterval(counter);
+    }
+  }, 80);
+
+  return () => clearInterval(counter);
+}, []);
+
   return (
     <div>
       {/* =========================
@@ -126,33 +197,159 @@ function App() {
       ========================= */}
 
       <nav className="navbar">
-        <h2>Aleeza Amjad</h2>
 
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certificates">Certificates</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+        {/* Profile Picture */}
+        <a href="#home" className="nav-profile">
+          <img
+            src="/profile.png"
+            alt="Aleeza Amjad"
+          />
+        </a>
+
+        {/* Right Side Controls */}
+        <div className="nav-actions">
+
+          {/* Let's Talk */}
+          <a
+            href="#contact"
+            className="lets-talk"
+          >
+            Let's Talk
+          </a>
+
+          {/* Light / Dark Mode */}
+          <button
+            className="theme-toggle"
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label="Toggle theme"
+          >
+            {darkMode ? "☀" : "☾"}
+          </button>
+
+          {/* Hamburger */}
+          <button
+            className={`menu-toggle ${
+              menuOpen ? "active" : ""
+            }`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
         </div>
       </nav>
+
+      {/* =========================
+          SIDE NAVIGATION
+      ========================= */}
+
+      <div
+        className={`side-menu ${
+          menuOpen ? "open" : ""
+        }`}
+      >
+
+        <button
+          className="side-menu-close"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+
+        <div className="side-menu-links">
+
+          <a
+            href="#home"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </a>
+
+          <a
+            href="#about"
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </a>
+
+          <a
+            href="#skills"
+            onClick={() => setMenuOpen(false)}
+          >
+            Skills
+          </a>
+
+          <a
+            href="#projects"
+            onClick={() => setMenuOpen(false)}
+          >
+            Projects
+          </a>
+
+          <a
+            href="#certificates"
+            onClick={() => setMenuOpen(false)}
+          >
+            Certificates
+          </a>
+
+          <a
+            href="#services"
+            onClick={() => setMenuOpen(false)}
+          >
+            Services
+          </a>
+
+          <a
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </a>
+
+        </div>
+      </div>
+
+      {/* Sidebar Overlay */}
+      {menuOpen && (
+        <div
+          className="menu-overlay"
+          onClick={() => setMenuOpen(false)}
+        ></div>
+      )}
 
       {/* =========================
           HERO
       ========================= */}
 
-      <section className="hero">
+      <section
+        id="home"
+        className="hero"
+      >
         <div className="hero-content">
 
           <div>
-            <p className="intro">Hello, I'm</p>
 
-            <h1>Aleeza Amjad</h1>
+            <p className="intro">
+              Hello, I'm
+            </p>
+
+            <h1>
+              Aleeza Amjad
+            </h1>
 
             <h2 className="typing-title">
-              <span>Computer Engineer</span>
-              <span>Web Developer</span>
+              <span>
+                Computer Engineer
+              </span>
+
+              <span>
+                Web Developer
+              </span>
             </h2>
 
             <div className="buttons">
@@ -182,13 +379,27 @@ function App() {
               </a>
 
             </div>
+            <div className="project-count">
+
+  <strong>
+    {projectCount}+
+  </strong>
+
+  <span>
+    Projects Completed
+  </span>
+
+</div>
+
           </div>
 
           <div className="hero-image">
+
             <img
               src="/profile.png"
               alt="Aleeza Amjad"
             />
+
           </div>
 
         </div>
@@ -201,37 +412,47 @@ function App() {
       <section
         id="about"
         className={`section about-section ${
-          aboutVisible ? "about-animate" : ""
+          aboutVisible
+            ? "about-animate"
+            : ""
         }`}
         ref={aboutRef}
       >
-        <h2>About Me</h2>
 
-        <p className="about-item">
-          I’m a Computer Engineer and Full-Stack Developer
-          specializing in modern web applications, backend systems,
-          and AI-powered digital solutions. I combine engineering
-          fundamentals with practical development experience to
-          build products that are responsive, intuitive, and
-          designed around real-world requirements.
-        </p>
+        <div className="about-glass">
 
-        <p className="about-item">
-          My work spans the full development lifecycle — from
-          crafting engaging React interfaces and building RESTful
-          APIs to implementing authentication, database-driven
-          functionality, third-party integrations, and deployment.
-          I also explore AI integration to enhance applications
-          with intelligent and interactive capabilities.
-        </p>
+          <h2>
+            About Me
+          </h2>
 
-        <p className="about-item">
-          I focus on writing maintainable code, creating seamless
-          user experiences, and turning complex requirements into
-          practical digital products. My goal is to build solutions
-          that are not only visually polished, but also functional,
-          reliable, and ready to scale.
-        </p>
+          <p className="about-item">
+            I’m a Computer Engineer and Full-Stack Developer
+            specializing in modern web applications, backend systems,
+            and AI-powered digital solutions. I combine engineering
+            fundamentals with practical development experience to
+            build products that are responsive, intuitive, and
+            designed around real-world requirements.
+          </p>
+
+          <p className="about-item">
+            My work spans the full development lifecycle — from
+            crafting engaging React interfaces and building RESTful
+            APIs to implementing authentication, database-driven
+            functionality, third-party integrations, and deployment.
+            I also explore AI integration to enhance applications
+            with intelligent and interactive capabilities.
+          </p>
+
+          <p className="about-item">
+            I focus on writing maintainable code, creating seamless
+            user experiences, and turning complex requirements into
+            practical digital products. My goal is to build solutions
+            that are not only visually polished, but also functional,
+            reliable, and ready to scale.
+          </p>
+
+        </div>
+
       </section>
 
       {/* =========================
@@ -241,69 +462,84 @@ function App() {
       <section
         id="skills"
         className={`section skills-section ${
-          skillsVisible ? "skills-animate" : ""
+          skillsVisible
+            ? "skills-animate"
+            : ""
         }`}
         ref={skillsRef}
       >
-        <h2>Skills</h2>
+
+        <h2>
+          Skills
+        </h2>
 
         <div className="skills">
 
-          {/* Frontend & Programming */}
-
           <div className="skill-box">
-            <h3>Frontend & Programming</h3>
+
+            <h3>
+             ✧ Frontend & Programming
+            </h3>
 
             <p>
               HTML • CSS • JavaScript • React.js • Python
             </p>
+
           </div>
 
-          {/* Backend & Databases */}
-
           <div className="skill-box">
-            <h3>Backend & Databases</h3>
+
+            <h3>
+              ✧ Backend & Databases
+            </h3>
 
             <p>
               Node.js • Express.js • MongoDB • MySQL • PostgreSQL
             </p>
+
           </div>
 
-          {/* Tools & Technologies */}
-
           <div className="skill-box">
-            <h3>Tools & Technologies</h3>
+
+            <h3>
+              ✧ Tools & Technologies
+            </h3>
 
             <p>
               Git • GitHub • Postman • Vercel • Railway • Firebase •
-              Google API • Stripe Payments • VS Code • Microsoft
-              Office
+              Google API • Stripe Payments • VS Code • Microsoft Office
             </p>
+
           </div>
 
-          {/* AI & Machine Learning */}
-
           <div className="skill-box">
-            <h3>AI & Machine Learning</h3>
+
+            <h3>
+              ✧ AI & Machine Learning
+            </h3>
 
             <p>
               Artificial Intelligence • Machine Learning • AI/ML
               Model Deployment in Embedded Systems
             </p>
+
           </div>
 
-          {/* Professional Skills */}
-
           <div className="skill-box">
-            <h3>Professional Skills</h3>
+
+            <h3>
+              ✧ Professional Skills
+            </h3>
 
             <p>
               Problem-Solving • Team Collaboration • Client
               Communication • Multitasking • Leadership
             </p>
+
           </div>
 
         </div>
+
       </section>
 
       {/* =========================
@@ -313,53 +549,92 @@ function App() {
       <section
         id="projects"
         className={`section projects-section ${
-          projectsVisible ? "projects-animate" : ""
+          projectsVisible
+            ? "projects-animate"
+            : ""
         }`}
         ref={projectsRef}
       >
-        <h2>Projects</h2>
+
+        <h2>
+          Projects
+        </h2>
 
         <div className="projects">
 
           {projects.map((project, index) => (
+
             <div
-              className="project-card"
+              className={`project-timeline-item ${
+                activeProject === index
+                  ? "active"
+                  : ""
+              }`}
               key={index}
             >
-              <h3>{project.title}</h3>
 
-              <p>{project.description}</p>
+              <div className="project-marker-line">
 
-              <span>{project.tech}</span>
+                <span className="project-marker">
+                  ✧
+                </span>
 
-              <div className="project-buttons">
+                <span className="project-line"></span>
 
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                )}
+              </div>
 
-                {project.github &&
-                  project.github !== "#" && (
+              <div
+                className="project-card"
+                ref={(element) => {
+                  projectRefs.current[index] = element;
+                }}
+              >
+
+                <h3>
+                  {project.title}
+                </h3>
+
+                <p>
+                  {project.description}
+                </p>
+
+                <span>
+                  {project.tech}
+                </span>
+
+                <div className="project-buttons">
+
+                  {project.live && (
                     <a
-                      href={project.github}
+                      href={project.live}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      GitHub
+                      Live Demo
                     </a>
                   )}
 
+                  {project.github &&
+                    project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub
+                      </a>
+                    )}
+
+                </div>
+
               </div>
+
             </div>
+
           ))}
 
         </div>
+
       </section>
 
       {/* =========================
@@ -375,7 +650,10 @@ function App() {
         }`}
         ref={certificatesRef}
       >
-        <h2>Certificates</h2>
+
+        <h2>
+          Certificates
+        </h2>
 
         <p className="certificates-intro">
           Professional certifications and achievements that reflect
@@ -384,9 +662,8 @@ function App() {
 
         <div className="certificate-cards">
 
-          {/* Certificate 1 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               01/10/2025
             </span>
@@ -398,11 +675,11 @@ function App() {
             <p className="certificate-organization">
               Hello World Technologies
             </p>
+
           </div>
 
-          {/* Certificate 2 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               24/01/2026
             </span>
@@ -414,11 +691,11 @@ function App() {
             <p className="certificate-organization">
               Google
             </p>
+
           </div>
 
-          {/* Certificate 3 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               25/08/2025
             </span>
@@ -430,11 +707,11 @@ function App() {
             <p className="certificate-organization">
               LinkedIn Learning
             </p>
+
           </div>
 
-          {/* Certificate 4 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               11/01/2026
             </span>
@@ -446,11 +723,11 @@ function App() {
             <p className="certificate-organization">
               SkillSprint30
             </p>
+
           </div>
 
-          {/* Certificate 5 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               01/07/2026
             </span>
@@ -462,11 +739,11 @@ function App() {
             <p className="certificate-organization">
               Navttc
             </p>
+
           </div>
 
-          {/* Certificate 6 */}
-
           <div className="certificate-card">
+
             <span className="certificate-date">
               01/07/2026
             </span>
@@ -478,11 +755,10 @@ function App() {
             <p className="certificate-organization">
               Builtin soft
             </p>
+
           </div>
 
         </div>
-
-        
 
       </section>
 
@@ -493,11 +769,16 @@ function App() {
       <section
         id="services"
         className={`section services-section ${
-          servicesVisible ? "services-animate" : ""
+          servicesVisible
+            ? "services-animate"
+            : ""
         }`}
         ref={servicesRef}
       >
-        <h2>Services</h2>
+
+        <h2>
+          Services
+        </h2>
 
         <p className="services-intro">
           I provide modern digital solutions focused on
@@ -507,9 +788,8 @@ function App() {
 
         <div className="services">
 
-          {/* Service 1 */}
-
           <div className="service-card">
+
             <div className="service-icon">
               ⌘
             </div>
@@ -523,11 +803,11 @@ function App() {
               frontend, backend, databases, authentication,
               APIs, and deployment.
             </p>
+
           </div>
 
-          {/* Service 2 */}
-
           <div className="service-card">
+
             <div className="service-icon">
               &lt;/&gt;
             </div>
@@ -542,11 +822,11 @@ function App() {
               and CSS with a strong focus on usability and
               modern design.
             </p>
+
           </div>
 
-          {/* Service 3 */}
-
           <div className="service-card">
+
             <div className="service-icon">
               ⚙
             </div>
@@ -560,11 +840,11 @@ function App() {
               functionality, database integration,
               authentication, and reliable backend systems.
             </p>
+
           </div>
 
-          {/* Service 4 */}
-
           <div className="service-card">
+
             <div className="service-icon">
               ✦
             </div>
@@ -579,11 +859,11 @@ function App() {
               assistants, automation tools, and interactive
               digital experiences.
             </p>
+
           </div>
 
-          {/* Service 5 */}
-
           <div className="service-card">
+
             <div className="service-icon">
               ↗
             </div>
@@ -597,9 +877,11 @@ function App() {
               usability, structure, and overall user
               experience across different devices.
             </p>
+
           </div>
 
         </div>
+
       </section>
 
       {/* =========================
@@ -610,7 +892,10 @@ function App() {
         id="contact"
         className="section contact"
       >
-        <h2>Let's Connect</h2>
+
+        <h2>
+          Let's Connect
+        </h2>
 
         <p>
           I'm open to opportunities, collaborations and
@@ -618,8 +903,6 @@ function App() {
         </p>
 
         <div className="contact-links">
-
-          {/* Gmail */}
 
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=alizaamjad597@gmail.com"
@@ -633,8 +916,6 @@ function App() {
             />
           </a>
 
-          {/* LinkedIn */}
-
           <a
             href="https://www.linkedin.com/in/aleeza-amjad-544379264/"
             target="_blank"
@@ -646,8 +927,6 @@ function App() {
               alt="LinkedIn"
             />
           </a>
-
-          {/* GitHub */}
 
           <a
             href="https://github.com/aleeza-dev"
@@ -661,13 +940,11 @@ function App() {
             />
           </a>
 
-          {/* WhatsApp */}
-
           <a
             href="https://wa.me/qr/7PJ5RVWRTAMAA1"
             target="_blank"
             rel="noreferrer"
-            aria-label="WhatsApp"
+            aria-label="Whatsapp"
           >
             <img
               src="/whatsapp.png"
@@ -676,6 +953,7 @@ function App() {
           </a>
 
         </div>
+
       </section>
 
       {/* =========================

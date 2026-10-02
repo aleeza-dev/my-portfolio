@@ -434,14 +434,6 @@ useEffect(() => {
             designed around real-world requirements.
           </p>
 
-          <p className="about-item">
-            My work spans the full development lifecycle — from
-            crafting engaging React interfaces and building RESTful
-            APIs to implementing authentication, database-driven
-            functionality, third-party integrations, and deployment.
-            I also explore AI integration to enhance applications
-            with intelligent and interactive capabilities.
-          </p>
 
           <p className="about-item">
             I focus on writing maintainable code, creating seamless

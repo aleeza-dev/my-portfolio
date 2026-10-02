@@ -1943,7 +1943,7 @@ body.dark-mode .side-menu-links a {
   }
 
   .hero {
-    min-height: 75vh;
+    min-height: auto;
 
     padding: 25px 6% 50px;
   }
@@ -2203,6 +2203,7 @@ body.dark-mode .side-menu-links a {
   }
 
   .hero {
+     min-height: auto;
     padding: 20px 5% 40px;
   }
 

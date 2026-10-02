@@ -1731,39 +1731,6 @@ body.dark-mode .what-you-get-icon {
 
 }
 
-@media (max-width: 480px) {
-
-  .what-you-get-section {
-    padding: 70px 5%;
-  }
-
-  .what-you-get-intro {
-    margin-bottom: 40px;
-  }
-
-  .what-you-get-card {
-    gap: 15px;
-    padding: 20px;
-  }
-
-  .what-you-get-icon {
-    min-width: 42px;
-    width: 42px;
-    height: 42px;
-    font-size: 1.05rem;
-  }
-
-  .what-you-get-card h3 {
-    font-size: 0.98rem;
-  }
-
-  .what-you-get-card p {
-    font-size: 0.86rem;
-  }
-
-}
-
-
 
 /* =========================
    CONTACT
@@ -1978,7 +1945,7 @@ body.dark-mode .side-menu-links a {
   .hero {
     min-height: 75vh;
 
-    padding: 50px 6%;
+    padding: 25px 6% 50px;
   }
 
   .hero-content {
@@ -1994,7 +1961,11 @@ body.dark-mode .side-menu-links a {
   .hero-left {
     width: 58%;
 
-    text-align: left;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-image {
@@ -2009,20 +1980,36 @@ body.dark-mode .side-menu-links a {
     height: 210px;
   }
 
+  .intro {
+    font-size: 18px;
+
+    margin-bottom: 10px;
+  }
+
   .hero h1 {
     font-size: 32px;
+
+    margin-bottom: 10px;
   }
 
   .hero h2 {
     font-size: 19px;
+
+    margin-bottom: 20px;
   }
 
   .typing-title {
     height: 32px;
+
+    width: 100%;
   }
 
   .hero-text {
     font-size: 14px;
+
+    margin: 0;
+
+    max-width: 100%;
   }
 
   /* MOBILE BUTTONS ONLY */
@@ -2032,11 +2019,15 @@ body.dark-mode .side-menu-links a {
 
     align-items: center;
 
+    justify-content: center;
+
     gap: 7px;
 
     margin-top: 20px;
 
     flex-wrap: wrap;
+
+    width: 100%;
   }
 
   .btn {
@@ -2052,7 +2043,7 @@ body.dark-mode .side-menu-links a {
   }
 
   .project-count {
-    align-items: flex-start;
+    align-items: center;
 
     margin-top: 16px;
   }
@@ -2212,7 +2203,7 @@ body.dark-mode .side-menu-links a {
   }
 
   .hero {
-    padding: 40px 5%;
+    padding: 20px 5% 40px;
   }
 
   .hero-content {
@@ -2226,7 +2217,9 @@ body.dark-mode .side-menu-links a {
   .hero-left {
     width: 57%;
 
-    text-align: left;
+    text-align: center;
+
+    align-items: center;
   }
 
   .hero-image {
@@ -2241,6 +2234,12 @@ body.dark-mode .side-menu-links a {
     height: 165px;
   }
 
+  .intro {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+  }
+
   .hero h1 {
     font-size: 27px;
 
@@ -2249,12 +2248,16 @@ body.dark-mode .side-menu-links a {
 
   .hero h2 {
     font-size: 17px;
+
+    margin-bottom: 15px;
   }
 
   .typing-title {
     height: 27px;
 
     margin: 6px 0;
+
+    width: 100%;
   }
 
   .hero-text {
@@ -2270,11 +2273,15 @@ body.dark-mode .side-menu-links a {
 
     align-items: center;
 
+    justify-content: center;
+
     gap: 5px;
 
     margin-top: 16px;
 
     flex-wrap: wrap;
+
+    width: 100%;
   }
 
   .btn {
@@ -2290,7 +2297,7 @@ body.dark-mode .side-menu-links a {
   .project-count {
     margin-top: 14px;
 
-    align-items: flex-start;
+    align-items: center;
   }
 
   .project-count strong {

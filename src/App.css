@@ -2025,24 +2025,28 @@ body.dark-mode .side-menu-links a {
     font-size: 14px;
   }
 
+  /* MOBILE BUTTONS ONLY */
+
   .buttons {
-    flex-direction: column;
+    flex-direction: row;
 
-    align-items: flex-start;
+    align-items: center;
 
-    gap: 9px;
+    gap: 7px;
 
     margin-top: 20px;
+
+    flex-wrap: wrap;
   }
 
   .btn {
     width: auto;
 
-    min-width: 130px;
+    min-width: auto;
 
-    padding: 9px 15px;
+    padding: 7px 10px;
 
-    font-size: 13px;
+    font-size: 11px;
 
     text-align: center;
   }
@@ -2259,24 +2263,28 @@ body.dark-mode .side-menu-links a {
     line-height: 1.5;
   }
 
+  /* SMALL MOBILE BUTTONS ONLY */
+
   .buttons {
-    flex-direction: column;
+    flex-direction: row;
 
-    align-items: flex-start;
+    align-items: center;
 
-    gap: 7px;
+    gap: 5px;
 
     margin-top: 16px;
+
+    flex-wrap: wrap;
   }
 
   .btn {
     width: auto;
 
-    min-width: 110px;
+    min-width: auto;
 
-    padding: 7px 12px;
+    padding: 6px 8px;
 
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .project-count {
